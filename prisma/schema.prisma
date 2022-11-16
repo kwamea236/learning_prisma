@@ -14,4 +14,5 @@ model User{
   id Int @id @default(autoincrement())
   fullname String
   email String?
+  age Int?
 }

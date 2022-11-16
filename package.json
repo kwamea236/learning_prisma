@@ -7,7 +7,6 @@
     "generate": "npx prisma generate",
     "start": "ts-node-dev --transpile-only app.ts",
     "migrate": "npx prisma migrate dev",
-    "prepush": "npm run generate",
     "push": "npx prisma db push"
   },
   "keywords": [],

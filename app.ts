@@ -13,17 +13,35 @@ async function main(){
     //     }
     // });
 
-    const users = await prisma.user.createMany({
-        data: [{
-            fullname: "Jane Doe",
-            email: "janedoe@gmail.com"
-        },{
-            fullname: "Jack Doe",
-            email: "jackdoe@gmail.com"
-        }]
+    // const users = await prisma.user.createMany({
+    //     data: [{
+    //         fullname: "Jane Doe",
+    //         email: "janedoe@gmail.com"
+    //     },{
+    //         fullname: "Jack Doe",
+    //         email: "jackdoe@gmail.com"
+    //     }]
+    // })
+
+    //find unique user
+    const uniqueUser = await prisma.user.findUnique({
+        where: {
+            id: 3
+        }
     })
 
-    console.log(JSON.stringify(users, undefined, 2));
+    // const updateUser = await prisma.user.update({
+    //     where:{
+    //         id: 1
+    //     },
+    //     data:{
+    //         fullname: "Prince Doe",
+    //         age: 20,
+    //         email: "princedoe@gmail.com"
+    //     }
+    // })
+
+    console.log(JSON.stringify(uniqueUser, undefined));
 }
 
 main()
