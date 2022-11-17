@@ -11,8 +11,17 @@ datasource db {
 }
 
 model User{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   fullname String
-  email String?
+  email String? @unique
   age Int?
+
+  @@unique([fullname, email])
+  @@index([email])
+  @@map(name: "users")
+}
+
+enum RoleEnumType{
+  user
+  admin
 }

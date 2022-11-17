@@ -3,45 +3,41 @@ import connectDB, { prisma } from "./connectDB";
 //connectDB
 connectDB();
 
-
 async function main(){
-    //insert a single user
-    // const user = await prisma.user.create({
-    //     data: {
-    //         fullname: "John Doe",
-    //         email: "johndoe@gmail.com"
-    //     }
-    // });
+//    const user = await prisma.user.create({
+//     data:{
+//         fullname: "Kwame Ato".toUpperCase(),
+//         age: 20,
+//         email: "kwame@gmail.com"
 
-    // const users = await prisma.user.createMany({
-    //     data: [{
-    //         fullname: "Jane Doe",
-    //         email: "janedoe@gmail.com"
-    //     },{
-    //         fullname: "Jack Doe",
-    //         email: "jackdoe@gmail.com"
-    //     }]
-    // })
-
-    //find unique user
-    const uniqueUser = await prisma.user.findUnique({
-        where: {
-            id: 3
-        }
-    })
-
-    // const updateUser = await prisma.user.update({
+//     }
+//    })
+    // const updateData = await prisma.user.update({
     //     where:{
-    //         id: 1
+    //         id: "d041f9df-9542-4802-97be-7248bad87c86"
     //     },
     //     data:{
-    //         fullname: "Prince Doe",
-    //         age: 20,
-    //         email: "princedoe@gmail.com"
+    //         fullname: "Raymond Ghanney",
+    //         age: 30,
+    //         email: "raymondghan@gmail.com"
     //     }
     // })
 
-    console.log(JSON.stringify(uniqueUser, undefined));
+    const insertMany = await prisma.user.createMany({
+        data:[{
+            fullname: "John Doe",
+            email: "johndoe@gmail.com",
+            age: 30
+        },{
+            fullname: "Jane Doe",
+            email: "janedoe@gmail.com",
+            age: 7
+        },{
+            fullname: "Maame Saaba",
+            email: "mamesaaba@gmail.com",
+            age: 50
+        }]
+    })
 }
 
 main()
